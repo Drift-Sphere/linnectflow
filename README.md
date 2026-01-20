@@ -1,88 +1,50 @@
 # LinnectFlow - LinkedIn AI Assistant
 
-A reply-rate focused LinkedIn messaging assistant with AI optimization.
+A reply-rate focused LinkedIn messaging assistant with AI optimization. LinnectFlow helps you personalize your outreach, track your activity, and stay within LinkedIn's safety limits—all for free.
 
 ## Features
 
-### Free Tier
-- ✅ 5 message templates
-- ✅ Profile data extraction (basic fields)
-- ✅ AI message generation (10/day)
-- ✅ Message history (7 days)
-- ✅ Activity counter
-
-### Pro Tier ($19/month)
-- ✨ Unlimited templates
-- ✨ Advanced profile extraction
-- ✨ Unlimited AI rewrites & generation
-- ✨ Full message history & analytics
-- ✨ Smart safety mode
-- ✨ Follow-up reminders
-- ✨ Lead tagging & notes
+- **Unlimited Templates**: Create and manage as many messaging templates as you need.
+- **Full Profile Extraction**: Automatically extract 10+ data points from LinkedIn profiles (Name, Company, Role, Headline, Education, Skills, etc.).
+- **AI-Powered Generation**: Generate personalized messages using Groq or OpenAI models.
+- **Message History & Analytics**: Track every message sent and monitor your reply rates with built-in analytics.
+- **LinkedIn Health Tracking**: Stay safe with real-time activity counters and warnings based on industry-standard limits.
+- **Follow-Up Reminders**: Never miss a beat with scheduled reminders for your leads.
+- **Lead Tagging & Notes**: Organize your outreach with custom tags and detailed notes.
 
 ## Installation
 
-1. Clone or download this repository
-2. Open Chrome and go to `chrome://extensions/`
-3. Enable "Developer mode"
-4. Click "Load unpacked" and select the `linkedin-ai-tool` folder
-5. The extension icon should appear in your toolbar
+1. Clone or download this repository.
+2. Open Chrome and go to `chrome://extensions/`.
+3. Enable **"Developer mode"** in the top right.
+4. Click **"Load unpacked"** and select the extension folder.
+5. The LinnectFlow icon will appear in your toolbar.
 
 ## Setup
 
-1. Click the extension icon
-2. Go to Settings tab
-3. Add your Gemini API key (get free key from [Google AI Studio](https://makersuite.google.com/app/apikey))
-4. Configure your LinkedIn account type
-5. Save settings
+1. Click the extension icon and go to the **Settings** tab.
+2. Select your AI Provider (**Groq** or **OpenAI**).
+3. Enter your **API Key** (get one from [Groq Console](https://console.groq.com/) or [OpenAI Platform](https://platform.openai.com/)).
+4. Specify the **Model ID** (e.g., `llama-3.1-70b-versatile` or `gpt-4o-mini`).
+5. Click **Save Settings** and use the **Test Connection** button to verify.
 
 ## Usage
 
-### Compose Messages
-1. Navigate to any LinkedIn profile
-2. Click "Extract Profile Data"
-3. Click "Generate AI Message"
-4. Copy and paste into LinkedIn
+### Personalizing Messages
+1. Navigate to a LinkedIn profile.
+2. Click the LinnectFlow icon in your toolbar (or use the injected buttons on the page).
+3. Click **Extract Profile Data** to grab details.
+4. Select a template and click **Generate AI Message** to create a personalized draft.
 
-### Use Templates
-1. Go to Templates tab
-2. Click "+ New" to create a template
-3. Use variables: `{{firstName}}`, `{{company}}`, `{{role}}`, etc.
-4. Templates will auto-fill when you insert them
+### Dynamic Templates
+Use variables in your templates for automatic personalization:
+- `{{firstName}}`, `{{lastName}}`, `{{company}}`, `{{role}}`, `{{headline}}`, `{{location}}`, `{{industry}}`, `{{school}}`, `{{skills}}`, `{{mutualConnections}}`.
 
-### In-Page Features
-- When composing a message on LinkedIn, look for the LinkedIn AI Pro toolbar
-- Click "Insert Template" to quickly add a template
-- Click "Enhance" (Pro) to improve your message with AI
+## Privacy & Security
 
-## Variables
-
-Use these in your templates to personalize messages:
-
-- `{{name}}` or `{{fullName}}` - Full name
-- `{{firstName}}` - First name only
-- `{{lastName}}` - Last name only
-- `{{company}}` - Current company
-- `{{role}}` or `{{title}}` - Job title
-- `{{headline}}` - LinkedIn headline
-- `{{location}}` - City, state
-- `{{industry}}` - Industry
-- `{{school}}` - Education
-- `{{skills}}` - Top skills
-- `{{mutualConnections}}` - Number of mutual connections
-
-## Safety Features
-
-- **Activity Tracking**: Monitors messages and connection requests
-- **LinkedIn Limits**: Warns you before hitting LinkedIn's daily limits
-- **Smart Pacing**: (Pro) Adds random delays and warnings
-
-## Privacy
-
-- All data stored locally in your browser
-- Optional cloud sync for Pro users
-- No data sold to third parties
-- AI processing uses Google Gemini API
+- **Local Storage**: All your templates, history, and notes are stored locally in your browser.
+- **Bring Your Own Key**: Your API keys are stored securely on your device and calls are made directly to the providers.
+- **Privacy First**: We do not track your LinkedIn credentials or sell your data.
 
 ## Support
 
@@ -90,4 +52,4 @@ For issues or feature requests, please open an issue on GitHub.
 
 ## License
 
-MIT License - see LICENSE file for details
+MIT License - see LICENSE file for details.

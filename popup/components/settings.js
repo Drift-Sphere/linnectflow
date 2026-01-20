@@ -96,7 +96,7 @@ class SettingsComponent {
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = `linkedin-ai-pro-export-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `linnectflow-export-${new Date().toISOString().split('T')[0]}.json`;
     a.click();
 
     window.popupController.showNotification('Data exported!');
@@ -111,7 +111,6 @@ class SettingsComponent {
 
     // Reset to defaults
     await chrome.storage.local.set({
-      userTier: 'free',
       templates: [],
       messages: [],
       reminders: [],

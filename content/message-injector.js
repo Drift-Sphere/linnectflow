@@ -71,8 +71,6 @@ class MessageComposerInjector {
 
         toolbar.appendChild(insertBtn);
 
-        toolbar.appendChild(insertBtn);
-
         // Character counter
         const charCounter = document.createElement('span');
         charCounter.className = 'char-counter';
