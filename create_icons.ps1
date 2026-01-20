@@ -1,8 +1,8 @@
-# Create Icons for LinkedIn AI Tool
+# Create Icons for LinnectFlow
 # This script generates simple placeholder icons using PowerShell .NET integration
 # to fix the "missing icon" error when loading the extension
 
-$iconDir = "d:\linkedin-ai-tool\assets\icons"
+$iconDir = "$PSScriptRoot\assets\icons"
 
 # Ensure directory exists
 if (-not (Test-Path $iconDir)) {
