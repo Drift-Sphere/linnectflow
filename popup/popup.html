@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header with activity counter -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">LinnectFlow</div>
+        </div>
+        <div class="activity-counter" id="activityCounter">
+            <div class="counter-item">
+                <span class="counter-value" id="messageCount">0</span>
+                <span class="counter-label">messages</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main navigation tabs -->
+    <nav class="tabs">
+        <button class="tab active" data-tab="compose">
+            <span class="tab-icon">✍️</span>
+            <span class="tab-label">Compose</span>
+        </button>
+        <button class="tab" data-tab="templates">
+            <span class="tab-icon">📝</span>
+            <span class="tab-label">Templates</span>
+        </button>
+        <button class="tab" data-tab="history">
+            <span class="tab-icon">📜</span>
+            <span class="tab-label">History</span>
+        </button>
+        <button class="tab" data-tab="analytics">
+            <span class="tab-icon">📈</span>
+            <span class="tab-label">Analytics</span>
+        </button>
+        <button class="tab" data-tab="settings">
+            <span class="tab-icon">⚙️</span>
+            <span class="tab-label">Settings</span>
+        </button>
+    </nav>
+
+    <!-- Tab Content Areas -->
+    <div class="tab-content-wrapper">
+        <!-- COMPOSE TAB -->
+        <div id="compose-tab" class="tab-content active">
+            <div class="section">
+                <div class="section-header">
+                    <h3>Quick Compose</h3>
+                </div>
+
+                <button id="grabProfileBtn" class="btn btn-primary">
+                    <span class="btn-icon">👤</span>
+                    1. Extract Profile Data
+                </button>
+
+                <div id="profileData" class="profile-preview">
+                    <div class="empty-state">
+                        <div class="empty-icon">🎯</div>
+                        <p>Go to a LinkedIn profile and click above to extract their data</p>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <button id="generateBtn" class="btn btn-success">
+                    <span class="btn-icon">✨</span>
+                    2. Generate AI Message
+                </button>
+
+                <textarea id="messageOutput" placeholder="Your AI-generated message will appear here..."
+                    rows="6"></textarea>
+
+                <div class="message-actions">
+                    <button id="copyBtn" class="btn btn-secondary btn-block">
+                        <span class="btn-icon">📋</span>
+                        Copy Message
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMPLATES TAB -->
+        <div id="templates-tab" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h3>Message Templates</h3>
+                    <button id="addTemplateBtn" class="btn btn-sm btn-primary">+ New</button>
+                </div>
+
+                <div id="templatesList" class="templates-list">
+                    <!-- Templates will be loaded here -->
+                </div>
+
+                <div class="template-limit-info" id="templateLimitInfo">
+                    <span id="templateCount">0</span> templates used
+                </div>
+            </div>
+        </div>
+
+        <!-- HISTORY TAB -->
+        <div id="history-tab" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h3>Message History</h3>
+                    <button id="refreshHistoryBtn" class="btn btn-sm btn-secondary">🔄</button>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="historySearch" placeholder="Search by name or content...">
+                </div>
+
+                <div id="historyList" class="history-list">
+                    <!-- History items will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ANALYTICS TAB -->
+        <div id="analytics-tab" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h3>Performance Insights</h3>
+                </div>
+
+                <div id="analyticsContent">
+                    <!-- Analytics will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- SETTINGS TAB -->
+        <div id="settings-tab" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h3>Settings</h3>
+                </div>
+
+
+
+
+
+                <div class="setting-group">
+                    <h4>AI Configuration</h4>
+                    <div style="margin-top: 12px;">
+                        <label class="setting-label">Provider</label>
+                        <select id="aiProviderSelect" class="input">
+                            <option value="groq">Groq (Recommended)</option>
+                            <option value="openai">OpenAI</option>
+                        </select>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label class="setting-label">API Key</label>
+                        <input type="password" id="aiApiKeyInput" class="input" placeholder="Enter your API key">
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label class="setting-label">Model Name</label>
+                        <input type="text" id="aiModelInput" class="input" placeholder="e.g. llama-3.3-70b-versatile">
+                    </div>
+                    <button id="testConnectionBtn" class="btn btn-secondary btn-sm btn-block"
+                        style="margin-top: 8px;">Test Connection</button>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="setting-group">
+                    <label class="setting-label">AI Message Style</label>
+                    <textarea id="customPromptInput" class="input" rows="3"
+                        placeholder="Write a professional LinkedIn message..."></textarea>
+                </div>
+
+                <button id="saveSettingsBtn" class="btn btn-primary btn-block">Save Settings</button>
+
+                <div class="divider"></div>
+
+                <!-- Account section removed: everything is now free -->
+
+                <div class="divider"></div>
+
+                <div class="setting-group">
+                    <h4>Data Management</h4>
+                    <button id="exportDataBtn" class="btn btn-secondary btn-sm">Export Data</button>
+                    <button id="clearDataBtn" class="btn btn-danger btn-sm">Clear All Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upgrade prompts removed -->
+
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../lib/tier-manager.js"></script>
+    <script src="../lib/storage-manager.js"></script>
+    <script src="../lib/template-engine.js"></script>
+    <script src="../lib/ai-service.js"></script>
+    <script src="../lib/linkedin-limits.js"></script>
+    <script src="components/compose.js"></script>
+    <script src="components/templates.js"></script>
+    <script src="components/history.js"></script>
+    <script src="components/analytics.js"></script>
+    <script src="components/settings.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>
